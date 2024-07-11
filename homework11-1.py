@@ -61,6 +61,7 @@ if json_flag:
             line_.append(r['Valute'][i][j])
         val_list.append(line_)
 
+    val_list.sort(key=lambda x: -x[3])
     pprint(val_list)
 
     # Сохраняем полученные данные в файл .xlsx
