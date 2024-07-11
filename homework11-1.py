@@ -81,7 +81,7 @@ if json_flag:
     ax.set_title('Курсы валют')
     ax.set_xlabel('Коды валют')
     ax.set_ylabel('Курс')
-    ax.scatter(chart_data['NumCode'], chart_data['Value'], s=chart_data['Nominal'])
+    ax.scatter(chart_data['NumCode'], chart_data['Value'], c=chart_data['Nominal'], s=chart_data['Nominal'])
 
     # chart_data['Value'].plot()
     plt.show()
