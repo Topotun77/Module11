@@ -24,7 +24,7 @@ import inspect
 from pprint import pprint
 
 
-class class1():
+class Class1():
     at = 1
 
     def test(x):
@@ -69,7 +69,12 @@ number_info = introspection_info(introspection_info)
 print()
 pprint(number_info)
 
-number_info = introspection_info(class1)
+number_info = introspection_info(Class1)
+print()
+pprint(number_info)
+
+obj_class1 = Class1()
+number_info = introspection_info(obj_class1)
 print()
 pprint(number_info)
 
