@@ -61,23 +61,23 @@ def introspection_info(obj=None, **kwargs):
     return info_dic
 
 
-number_info = introspection_info(42)
+info = introspection_info(42)
 print()
-pprint(number_info)
+pprint(info)
 
-number_info = introspection_info(introspection_info)
+info = introspection_info(introspection_info)
 print()
-pprint(number_info)
+pprint(info)
 
-number_info = introspection_info(Class1)
+info = introspection_info(Class1)
 print()
-pprint(number_info)
+pprint(info)
 
 obj_class1 = Class1()
-number_info = introspection_info(obj_class1)
+info = introspection_info(obj_class1)
 print()
-pprint(number_info)
+pprint(info)
 
-number_info = introspection_info()
+info = introspection_info()
 print()
-pprint(number_info)
+pprint(info)
