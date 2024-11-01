@@ -1,8 +1,3 @@
-# Домашнее задание по теме "Обзор сторонних библиотек Python"
-# Если вы решали старую версию задачи, проверка будет производиться по ней.
-# Ссылка на старую версию тут.
-# Цель: познакомиться с использованием сторонних библиотек в Python и применить их в различных задачах.
-#
 # Задача:
 # Выберите одну или несколько сторонних библиотек Python, например, requests, pandas, numpy, matplotlib,
 # pillow.
@@ -26,6 +21,9 @@ import matplotlib.pyplot as plt
 from pprint import pprint
 
 URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
+# 'https://urban-university.ru/profile/course?alias=course999421818026'
+# URL2 = 'https://urban-university.ru/profile/course'
+# URL3 = 'https://yandex.ru/search/?text=python+работа+с+библиотекой+json&lr=10&clid=2261451&win=531'
 
 """
 Использование модуля requests.
@@ -38,6 +36,10 @@ json_flag = False
 if r.ok:
     try:
         r = r.json()
+        with open('val.json', 'w', encoding='utf-8') as file:
+            file.write(str(r['Valute']))
+        # csv_ = pandas.read_json(URL)
+        # # csv_2 = pandas.read_json('./val.json')
     except requests.exceptions.JSONDecodeError as e:
         print('Содержимое ответа не в формате json.', 'От источника был получен следующий ответ:',
               r, sep='\n')
@@ -76,6 +78,10 @@ if json_flag:
 if json_flag:
     chart_data = pandas.read_excel(f"val_{r['Date'][0:10]}.xlsx")
     pprint(chart_data)
+    csv_ = chart_data.to_csv()
+    print(csv_)
+    with open('val.csv', 'w', encoding='utf-8') as file:
+        file.write(csv_)
     fig, ax = plt.subplots()
 
     ax.set_title('Курсы валют')
@@ -86,7 +92,8 @@ if json_flag:
     # выглядеть не очень красиво на диаграмме, поэтому для наглядности и красоты картинки строчка ниже
     # пусть останется такой, так тоже можно объяснить большие круги, как "нужно взять очень много той валюты,
     # чтобы обменять ее по указанному курсу на рубли:
-    ax.scatter(chart_data['NumCode'], chart_data['Value'], c=chart_data['Nominal'], s=chart_data['Nominal'])
+    ax.scatter(chart_data['NumCode'], chart_data['Value'], c=chart_data['Nominal'], s=chart_data['Nominal'],
+               alpha=0.5, cmap='flag')
 
     # chart_data['Value'].plot()
     plt.show()

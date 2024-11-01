@@ -1,9 +1,3 @@
-# Домашнее задание по теме "Интроспекция"
-# Цель задания:
-#
-# Закрепить знания об интроспекции в Python.
-# Создать персональную функции для подробной интроспекции объекта.
-#
 # Задание:
 # Необходимо создать функцию, которая принимает объект (любого типа) в качестве
 # аргумента и проводит интроспекцию этого объекта, чтобы определить его тип,
@@ -66,18 +60,18 @@ print()
 pprint(info)
 
 info = introspection_info(introspection_info)
-print()
+print('\ninfo = introspection_info(introspection_info)')
 pprint(info)
 
 info = introspection_info(Class1)
-print()
+print('\ninfo = introspection_info(Class1)')
 pprint(info)
 
 obj_class1 = Class1()
 info = introspection_info(obj_class1)
-print()
+print('\ninfo = introspection_info(obj_class1)')
 pprint(info)
 
 info = introspection_info()
-print()
+print('\ninfo = introspection_info()')
 pprint(info)
